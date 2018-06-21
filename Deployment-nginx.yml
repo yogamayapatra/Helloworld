@@ -1,0 +1,48 @@
+---
+kind: "Deployment"
+apiVersion: "extensions/v1beta1"
+metadata:
+  annotations: {}
+  name: "nginx"
+  labels:
+    nirmata.io/deployment.name: "nginx"
+    nirmata.io/application.run: "nginx"
+    nirmata.io/environment.name: "secure-qa-06"
+    nirmata.io/application.name: "nginx"
+    nirmata.io/component: "nginx"
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      nirmata.io/application.run: "nginx"
+      nirmata.io/environment.name: "secure-qa-06"
+      nirmata.io/application.name: "nginx"
+      nirmata.io/component: "nginx"
+    matchExpressions: []
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations: {}
+      name: "nginx"
+      labels:
+        nirmata.io/deployment.name: "nginx"
+        nirmata.io/application.run: "nginx"
+        nirmata.io/environment.name: "secure-qa-06"
+        nirmata.io/application.name: "nginx"
+        nirmata.io/component: "nginx"
+    spec:
+      terminationGracePeriodSeconds: 30
+      nodeSelector: {}
+      containers:
+      - name: "nginx"
+        image: "nginx:latest"
+        command: []
+        args: []
+        ports:
+        - containerPort: 80
+          protocol: "TCP"
