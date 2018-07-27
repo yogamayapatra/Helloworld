@@ -1,0 +1,16 @@
+---
+kind: "NetworkPolicy"
+apiVersion: "extensions/v1beta1"
+spec:
+  podSelector:
+    matchLabels: {}
+    matchExpressions: []
+  policyTypes:
+  - "Ingress"
+  - "Egress"
+metadata:
+  annotations: {}
+  name: "ghost-default"
+  labels:
+    nirmata.io/networkpolicy.name: "ghost-default"
+    nirmata.io/application.name: "ghost"
