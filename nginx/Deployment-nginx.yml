@@ -40,7 +40,7 @@ spec:
       nodeSelector: {}
       containers:
       - name: "nginx"
-        image: "nginx:latest"
+        image: "nginx:1.9"
         command: []
         args: []
         ports:
