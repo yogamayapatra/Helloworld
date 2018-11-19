@@ -36,7 +36,7 @@ spec:
       nodeSelector: {}
       containers:
       - name: "ghost"
-        image: "ghost:1.8"
+        image: "ghost:1.9"
         command: []
         args: []
         ports:
